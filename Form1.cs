@@ -37,8 +37,8 @@ namespace LezerVagoHazszam
 
             richTextBoxInput.Paste();
 
-            /*try
-            {*/
+            try
+            {
                 szoveg = richTextBoxInput.Text.Split(new string[] { "Postázva" }, StringSplitOptions.None)[1];
                 aru.idopont = DateTime.Parse(szoveg.Split('\n')[1]);
 
@@ -92,11 +92,11 @@ namespace LezerVagoHazszam
                 }
 
                 richTextBoxOutput.Text = aru.atirCSVFormat();
-            /*}
+            }
             catch 
             {
                 MessageBox.Show("Hibás beviteli adat!\n\n");
-            }*/
+            }
 
         }
 
