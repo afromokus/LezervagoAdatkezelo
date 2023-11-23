@@ -37,16 +37,16 @@ namespace LezerVagoHazszam
 
             richTextBoxInput.Paste();
 
-            try
-            {
+            /*try
+            {*/
                 szoveg = richTextBoxInput.Text.Split(new string[] { "Postázva" }, StringSplitOptions.None)[1];
                 aru.idopont = DateTime.Parse(szoveg.Split('\n')[1]);
 
-                szoveg = richTextBoxInput.Text.Split(new string[] { "ára" }, StringSplitOptions.None)[1];
-                szoveg = szoveg = szoveg.Split('\n')[1];
-                szoveg = szoveg.Remove(szoveg.Length - 2, 2);
+                szoveg = richTextBoxInput.Text.Split(new string[] { "Termék ára\n" }, StringSplitOptions.None)[1];
+            szoveg = szoveg = szoveg.Split('\n')[0];
+            szoveg = szoveg.Remove(szoveg.Length - 2, 2);
                 szoveg = string.Concat(szoveg.Where(c => !Char.IsWhiteSpace(c)));
-                aru.ar = Convert.ToInt32(szoveg);
+            aru.ar = Convert.ToInt32(szoveg);
 
                 szoveg = richTextBoxInput.Text.Split(new string[] { "logo" }, StringSplitOptions.None)[0];
                 szoveg = szoveg.Split('\n').Last<string>();
@@ -92,11 +92,11 @@ namespace LezerVagoHazszam
                 }
 
                 richTextBoxOutput.Text = aru.atirCSVFormat();
-            }
+            /*}
             catch 
             {
                 MessageBox.Show("Hibás beviteli adat!\n\n");
-            }
+            }*/
 
         }
 
