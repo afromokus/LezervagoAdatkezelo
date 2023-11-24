@@ -149,7 +149,7 @@ namespace LezerVagoHazszam
                 szoveg = szoveg.Split('\n')[0];
                 szoveg = szoveg.Remove(0, 3);
                 //méret
-                aru.termeknev = "Házszám, " + szoveg;
+                aru.termeknev = "házszámtábla, " + szoveg;
             }
             else if (megrendelesSzoveg.Contains("5 forintos emlékérme tartó"))
             {
