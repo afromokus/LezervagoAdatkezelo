@@ -92,6 +92,8 @@ namespace LezerVagoHazszam
                 }
 
                 richTextBoxOutput.Text = aru.atirCSVFormat();
+
+                System.Windows.Forms.Clipboard.SetText(richTextBoxOutput.Text);
             }
             catch 
             {

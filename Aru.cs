@@ -50,9 +50,11 @@ namespace LezerVagoHazszam
         {
             string szoveg = "";
 
-            szoveg += termeknev + ";" + vasarloNeve + ";" + idopont.ToString("yy") + ". " + idopont.Month + ". " + idopont.Day + ";" + hol + ";" +
-                fizetesiMod + ";" + szallitasiMod + ";" +
-                ar + ";" + szamlazottPostaKolts + ";" + szamlaSzam + ";";
+            char elvalasztoKarakter = ';';
+
+            szoveg += termeknev + elvalasztoKarakter + vasarloNeve + elvalasztoKarakter + idopont.ToString("yy") + ". " + idopont.Month + ". " + idopont.Day +
+                elvalasztoKarakter + hol + elvalasztoKarakter + fizetesiMod + elvalasztoKarakter + szallitasiMod + elvalasztoKarakter +
+                ar + elvalasztoKarakter + szamlazottPostaKolts + elvalasztoKarakter + elvalasztoKarakter + szamlaSzam + elvalasztoKarakter;
 
             return szoveg;
         }
