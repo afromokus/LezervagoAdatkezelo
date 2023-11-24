@@ -65,8 +65,8 @@ namespace LezerVagoHazszam
 
             megrendelesSzoveg = megrendelesSzoveg.Trim();
 
-            /*try
-            {*/
+            try
+            {
 
             szoveg = megrendelesSzoveg.Split(new string[] { " vásárlónak" }, StringSplitOptions.None)[1];
             szoveg = szoveg.Split('\n')[1];
@@ -191,11 +191,11 @@ namespace LezerVagoHazszam
             }
 
             aru.termeknev = aru.termeknev.Trim();
-            /*}
+            }
             catch (Exception e)
             {
                 MessageBox.Show("Hibás beviteli adat!\n\n" + e.Message);
-            }*/
+            }
 
 
             return aru;
