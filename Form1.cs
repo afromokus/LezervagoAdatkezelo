@@ -37,10 +37,22 @@ namespace LezerVagoHazszam
 
             richTextBoxInput.Paste();
 
-            try
+            /*try
+            {*/
+                szoveg = richTextBoxInput.Text.Split(new string[] { " vásárlónak\n" }, StringSplitOptions.None)[1];
+            szoveg = szoveg.Split('\n')[0];
+
+            if (!szoveg.Contains("-én"))
             {
-                szoveg = richTextBoxInput.Text.Split(new string[] { "Postázva" }, StringSplitOptions.None)[1];
-                aru.idopont = DateTime.Parse(szoveg.Split('\n')[1]);
+                aru.idopont = DateTime.Parse(szoveg);
+            }
+            else
+            {
+                szoveg = szoveg.Remove(szoveg.Length - 3, 3);
+                MessageBox.Show(szoveg);
+                aru.idopont = DateTime.Parse(szoveg);
+                MessageBox.Show(aru.idopont + "");
+            }
 
                 szoveg = richTextBoxInput.Text.Split(new string[] { "Termék ára\n" }, StringSplitOptions.None)[1];
             szoveg = szoveg = szoveg.Split('\n')[0];
@@ -51,10 +63,6 @@ namespace LezerVagoHazszam
                 szoveg = richTextBoxInput.Text.Split(new string[] { "logo" }, StringSplitOptions.None)[0];
                 szoveg = szoveg.Split('\n').Last<string>();
                 aru.szallitasiMod = szoveg;
-
-                szoveg = richTextBoxInput.Text.Split(new string[] { "Számlaszám:\n" }, StringSplitOptions.None)[1];
-                szoveg = szoveg.Split('\n')[0];
-                aru.szamlaSzam = szoveg;
 
                 szoveg = richTextBoxInput.Text.Split(new string[] { "Szállítás\n\n" }, StringSplitOptions.None)[1];
                 szoveg = szoveg.Split(new string[] { "Ft" }, StringSplitOptions.None)[0];
@@ -84,6 +92,7 @@ namespace LezerVagoHazszam
                     szoveg = richTextBoxInput.Text.Split(new string[] { "- méret: " }, StringSplitOptions.None)[1];
                     szoveg = szoveg.Split('\n')[0];
                     szoveg = szoveg.Remove(0, 3);
+                    //méret
                     aru.termeknev = "házszám, " + szoveg;
                 }
                 else
@@ -94,11 +103,11 @@ namespace LezerVagoHazszam
                 richTextBoxOutput.Text = aru.atirCSVFormat();
 
                 System.Windows.Forms.Clipboard.SetText(richTextBoxOutput.Text);
-            }
+            /*}
             catch 
             {
                 MessageBox.Show("Hibás beviteli adat!\n\n");
-            }
+            }*/
 
         }
 
