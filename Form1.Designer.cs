@@ -37,7 +37,7 @@ namespace LezerVagoHazszam
             // 
             this.richTextBoxInput.Location = new System.Drawing.Point(24, 30);
             this.richTextBoxInput.Name = "richTextBoxInput";
-            this.richTextBoxInput.Size = new System.Drawing.Size(506, 895);
+            this.richTextBoxInput.Size = new System.Drawing.Size(516, 895);
             this.richTextBoxInput.TabIndex = 1;
             this.richTextBoxInput.Text = "";
             this.richTextBoxInput.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
