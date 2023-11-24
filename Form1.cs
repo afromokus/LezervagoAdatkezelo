@@ -176,14 +176,13 @@ namespace LezerVagoHazszam
             else if (megrendelesSzoveg.Contains("Különleges dominó óra, Gyerekszobába hangtalan játékos falióra"))
             {
 
-                szoveg = megrendelesSzoveg.Split(new string[] { "- méret: " }, StringSplitOptions.None)[1];
-                szoveg = szoveg.Split('\n')[0];
-                szoveg = szoveg.Remove(0, 1);
-                szoveg = szoveg.Remove(szoveg.Length - 8, 7);
-                //méret
-                aru.termeknev = "Dominó óra, " + szoveg;
+                    szoveg = megrendelesSzoveg.Split(new string[] { "- méret: " }, StringSplitOptions.None)[1];
+                    szoveg = szoveg.Split('\n')[0];
+                    szoveg = szoveg.Remove(szoveg.Length - 7, 7);
+                    //méret
+                    aru.termeknev = "Dominó óra, " + szoveg;
 
-            }
+                }
             else
             {
                 aru.termeknev = "Ismeretlen áru!";
