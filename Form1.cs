@@ -57,12 +57,16 @@ namespace LezerVagoHazszam
         }
 
         private Aru feldolgozMegrendelest(string megrendelesSzoveg)
-        {/*try
-            {*/
+        {
 
             Aru aru = new Aru();
 
             string szoveg = "";
+
+            megrendelesSzoveg = megrendelesSzoveg.Trim();
+
+            /*try
+            {*/
 
             szoveg = megrendelesSzoveg.Split(new string[] { " vásárlónak" }, StringSplitOptions.None)[1];
             szoveg = szoveg.Split('\n')[1];
@@ -73,7 +77,7 @@ namespace LezerVagoHazszam
             }
             else
             {
-                szoveg = szoveg.Remove(szoveg.Length - 4, 3);
+                szoveg = szoveg.Remove(szoveg.Length - 4, 4);
                 aru.idopont = DateTime.Parse(szoveg);
             }
 
@@ -87,7 +91,7 @@ namespace LezerVagoHazszam
                 szoveg = megrendelesSzoveg.Split(new string[] { "RENDELÉSRE" }, StringSplitOptions.None)[1];
                 szoveg = szoveg = szoveg.Split('\n')[2];
             }
-            szoveg = szoveg.Remove(szoveg.Length - 3, 2);
+            szoveg = szoveg.Remove(szoveg.Length - 3, 3);
             szoveg = string.Concat(szoveg.Where(c => !Char.IsWhiteSpace(c)));
             aru.ar = Convert.ToInt32(szoveg);
 
@@ -188,9 +192,9 @@ namespace LezerVagoHazszam
 
             aru.termeknev = aru.termeknev.Trim();
             /*}
-            catch 
+            catch (Exception e)
             {
-                MessageBox.Show("Hibás beviteli adat!\n\n");
+                MessageBox.Show("Hibás beviteli adat!\n\n" + e.Message);
             }*/
 
 
