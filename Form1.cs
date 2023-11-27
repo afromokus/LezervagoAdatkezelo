@@ -24,7 +24,7 @@ namespace LezerVagoHazszam
 
             StreamReader str = new StreamReader(fileNev);
 
-            /*foreach (string megrendeles in str.ReadToEnd().Split(new string[] { "Eladás" }, StringSplitOptions.None))
+            foreach (string megrendeles in str.ReadToEnd().Split(new string[] { "Eladás" }, StringSplitOptions.None))
             {
                 if (megrendeles != "")
                 {
@@ -34,7 +34,7 @@ namespace LezerVagoHazszam
 
             //MessageBox.Show(i + "");
 
-            str.Close();*/
+            str.Close();
 
         }
 
@@ -68,6 +68,7 @@ namespace LezerVagoHazszam
 
             try
             {
+                kiolvasTermekAra(megrendelesSzoveg);
 
                 szoveg = megrendelesSzoveg.Split(new string[] { " vásárlónak" }, StringSplitOptions.None)[1];
                 szoveg = szoveg.Split('\n')[1];
@@ -81,8 +82,6 @@ namespace LezerVagoHazszam
                     szoveg = szoveg.Remove(szoveg.Length - 3, 3);
                     aru.idopont = DateTime.Parse(szoveg);
                 }
-
-                kiolvasSzallitasiMod(megrendelesSzoveg);
 
                 try
                 {
@@ -119,6 +118,8 @@ namespace LezerVagoHazszam
                 aru.vasarloNeve = szoveg;
 
                 aru.vasarloNeve = aru.vasarloNeve.Trim();
+
+                kiolvasSzallitasiMod(megrendelesSzoveg);
 
                 if (megrendelesSzoveg.Contains("Fizetési státusz\nFizetve"))
                 {
@@ -191,42 +192,51 @@ namespace LezerVagoHazszam
                 MessageBox.Show("Hibás beviteli adat!\n\n" + e.Message);
             }
 
+            //MessageBox.Show(aru.ToString());
 
             return aru;
+        }
+
+        private void kiolvasTermekAra(string megrendelesSzoveg)
+        {
+            if (megrendelesSzoveg.Contains("Termékek ára"))
+            {
+                szoveg = megrendelesSzoveg.Split(new string[] { "Termékek ára" }, StringSplitOptions.None)[1];
+            }
+            else if (megrendelesSzoveg.Contains("Termék ára"))
+            {
+                szoveg = megrendelesSzoveg.Split(new string[] { "Termék ára" }, StringSplitOptions.None)[1];
+            }
+
+            szoveg = szoveg.Trim();
+            szoveg = szoveg.Split('\n')[0];
+            szoveg = szoveg.Remove(szoveg.Length - 3, 3);
+            szoveg = szoveg.Replace(" ", "");
+            aru.ar = Convert.ToInt32(szoveg);
         }
 
         private void kiolvasSzallitasiMod(string megrendelesSzoveg)
         {
 
-            try
+            if (megrendelesSzoveg.Contains("Választott szállítás"))
             {
-                try
-                { szoveg = megrendelesSzoveg.Split(new string[] { "Termékek ára" }, StringSplitOptions.None)[1]; }
-                catch
+               szoveg = megrendelesSzoveg.Split(new string[] { "Választott szállítás" }, StringSplitOptions.None)[1];
+                szoveg = szoveg.Trim();
+                szoveg = szoveg.Split('\n')[0];
+                aru.szallitasiMod = szoveg;
+
+                //MessageBox.Show(aru.szallitasiMod.ToLower().Replace(" ", ""));
+
+                if (aru.szallitasiMod.ToLower().Replace(" ", "").Contains("foxpost")) 
                 {
-                    szoveg = megrendelesSzoveg.Split(new string[] { "Termék ára" }, StringSplitOptions.None)[1];
-
+                    aru.szallitasiMod = "foxpost";
                 }
-                szoveg = szoveg = szoveg.Split('\n')[1];
             }
-            catch
+            else 
             {
-                szoveg = megrendelesSzoveg.Split(new string[] { "RENDELÉSRE" }, StringSplitOptions.None)[1];
-                szoveg = szoveg = szoveg.Split('\n')[2];
+                MessageBox.Show("Nem értelmezhető szállítási mód!");
             }
-            szoveg = szoveg.Remove(szoveg.Length - 3, 3);
-            szoveg = string.Concat(szoveg.Where(c => !Char.IsWhiteSpace(c)));
-            aru.ar = Convert.ToInt32(szoveg);
 
-            szoveg = megrendelesSzoveg.Split(new string[] { "logo" }, StringSplitOptions.None)[0];
-            szoveg = szoveg.Split('\n').Last<string>();
-            aru.szallitasiMod = szoveg;
-
-            aru.szallitasiMod = aru.szallitasiMod.Trim();
-            if (aru.szallitasiMod == "Fox post")
-            {
-                aru.szallitasiMod = "foxpost";
-            }
         }
 
         private void button1_Click(object sender, EventArgs e)

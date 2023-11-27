@@ -18,3 +18,13 @@ C:\Users\Kirsch\source\repos\LezervagoAdatkezelo-main\obj\Debug\LezerVagoHazszam
 C:\Users\Kirsch\source\repos\LezervagoAdatkezelo-main\obj\Debug\LezerVagoHazszam.csproj.CoreCompileInputs.cache
 C:\Users\Kirsch\source\repos\LezervagoAdatkezelo-main\obj\Debug\LezerVagoHazszam.exe
 C:\Users\Kirsch\source\repos\LezervagoAdatkezelo-main\obj\Debug\LezerVagoHazszam.pdb
+C:\Users\Kirsch\Desktop\Lezervago\LezervagoAdatkezelo-main\bin\Debug\LezerVagoHazszam.exe.config
+C:\Users\Kirsch\Desktop\Lezervago\LezervagoAdatkezelo-main\bin\Debug\LezerVagoHazszam.exe
+C:\Users\Kirsch\Desktop\Lezervago\LezervagoAdatkezelo-main\bin\Debug\LezerVagoHazszam.pdb
+C:\Users\Kirsch\Desktop\Lezervago\LezervagoAdatkezelo-main\obj\Debug\LezerVagoHazszam.csproj.AssemblyReference.cache
+C:\Users\Kirsch\Desktop\Lezervago\LezervagoAdatkezelo-main\obj\Debug\LezerVagoHazszam.Form1.resources
+C:\Users\Kirsch\Desktop\Lezervago\LezervagoAdatkezelo-main\obj\Debug\LezerVagoHazszam.Properties.Resources.resources
+C:\Users\Kirsch\Desktop\Lezervago\LezervagoAdatkezelo-main\obj\Debug\LezerVagoHazszam.csproj.GenerateResource.cache
+C:\Users\Kirsch\Desktop\Lezervago\LezervagoAdatkezelo-main\obj\Debug\LezerVagoHazszam.csproj.CoreCompileInputs.cache
+C:\Users\Kirsch\Desktop\Lezervago\LezervagoAdatkezelo-main\obj\Debug\LezerVagoHazszam.exe
+C:\Users\Kirsch\Desktop\Lezervago\LezervagoAdatkezelo-main\obj\Debug\LezerVagoHazszam.pdb
