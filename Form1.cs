@@ -20,7 +20,7 @@ namespace LezerVagoHazszam
         {
             InitializeComponent();
 
-            string fileNev = "Márknak.txt";
+            /*string fileNev = "Márknak.txt";
 
             StreamReader str = new StreamReader(fileNev);
 
@@ -34,7 +34,7 @@ namespace LezerVagoHazszam
 
             //MessageBox.Show(i + "");
 
-            str.Close();
+            str.Close();*/
 
         }
 
